@@ -1,27 +1,31 @@
-<nav class="navbar navbar-expand-sm bg-light navbar-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand" href="javascript:void(0)">Recipe Book</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+    <a class="navbar-brand" href="#">Recipe Book</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="mynavbar">
-      <ul class="navbar-nav me-auto">
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" href="javascript:void(0)">Recipes</a>
+          <a class="nav-link" href="#">Recipes</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="javascript:void(0)">Shopping List</a>
+          <a class="nav-link" href="#">Shopping List</a>
         </li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" role="button">Manage</a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Save Data</a></li>
-            <li><a href="#">Fetch Data</a></li>
-          </ul>
-        </li>
+        <li ngbDropdown class="nav-item"> 
+	        <button class="btn nav-link" id="navDrop"
+			            ngbDropdownToggle>Manage</button> 
+	        <div ngbDropdownMenu="navDrop"> 
+            <button ngbDropdownItem>Save Data</button> 
+            <button ngbDropdownItem>Fetch Data</button> 
+            <button ngbDropdownItem>ng bootstrap</button>
+	        </div> 
+        </li> 
       </ul>
     </div>
   </div>
 </nav>
+<div class="col"> 
+
+</div>
+
