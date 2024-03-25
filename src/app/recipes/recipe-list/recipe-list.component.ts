@@ -1,17 +1,24 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { Recipe } from '../recipe.model';
+import { RecipeService } from '../recipe.service';
 
 @Component({
   selector: 'app-recipe-list',
   templateUrl: './recipe-list.component.html',
   styleUrl: './recipe-list.component.css',
 })
-export class RecipeListComponent {
-  recipes: Recipe[] = [
-    new Recipe(
-      'Test recipe',
-      'Simply test',
-      'https://www.foodandwine.com/thmb/D7B4gf5cIwqtffzxq-uxJ_qhoGI=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/steak-au-poivre-red-wine-pan-sauce-hero-01-FT-RECIPE1222-c9e1da15f33f4076986b6ce37ae5bbb0.jpg'
-    ),
-  ];
+export class RecipeListComponent implements OnInit {
+  @Output() recipeWasSelected = new EventEmitter<Recipe>();
+  recipes: Recipe[];
+
+  constructor(private recipeService: RecipeService) {}
+
+  ngOnInit(): void {
+    this.recipes = this.recipeService.getRecipes();
+    
+  }
+
+  onRecipeSelected(recipe: Recipe): void {
+    this.recipeWasSelected.emit(recipe);
+  }
 }

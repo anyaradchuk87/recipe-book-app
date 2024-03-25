@@ -1,21 +1,33 @@
 <div class="row">
     <div class="col-xs-12">
-        <img src="" alt="" class="img-responsive">
+        <img [src]="recipe.imagePath" alt="{{ recipe.name }}" class="img-responsive" style="max-height: 200px">
     </div>
 </div>
 <div class="row">
     <div class="col-xs-12">
-        <h3>Recipe Name</h3>
+        <h3>{{ recipe.name }}</h3>
     </div>
+</div>
+<div class="row">
     <div class="col-xs-12">
         <div ngbDropdown> 
-            <button class="btn btn-warning" id="gfg"
-                    ngbDropdownToggle>Click Here!</button> 
-            <div ngbDropdownMenu="gfg"> 
-            <button ngbDropdownItem>GeeksforGeeks</button> 
-            <button ngbDropdownItem>Angular10</button> 
-            <button ngbDropdownItem>ng bootstrap</button> 
+            <button class="btn btn-primary" id="drop"
+                    ngbDropdownToggle>Manage</button> 
+            <div ngbDropdownMenu="drop"> 
+                <button ngbDropdownItem>To Shopping List</button> 
+                <button ngbDropdownItem>Edit Recipe</button> 
+                <button ngbDropdownItem>Delete Recipe</button> 
             </div> 
         </div> 
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12">
+        {{ recipe.description }}
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12">
+        Ingrediens
     </div>
 </div>
