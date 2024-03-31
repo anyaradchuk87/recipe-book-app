@@ -6,9 +6,10 @@ import { Directive, HostBinding, HostListener, ElementRef } from "@angular/core"
 export class DropdownDirective {
   @HostBinding('class.show') isOpen = false;
   @HostListener('document:click', ['$event']) toggleOpen(event: Event) {
-    this.isOpen = !this.elRef.nativeElement.contains(event.target)
+    const target = event.target as HTMLTextAreaElement;
+    this.isOpen = (target.className == 'navbar-toggler-icon')
       ? !this.isOpen
       : false;
   }
-  constructor(private elRef: ElementRef) {}
+  constructor() {}
 }
